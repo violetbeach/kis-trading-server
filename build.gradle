@@ -25,7 +25,7 @@ subprojects {
     apply plugin: 'jacoco'
     apply plugin: 'java-test-fixtures'
 
-    sourceCompatibility = '20'
+    sourceCompatibility = '17'
 
     repositories {
         mavenCentral()
