@@ -51,9 +51,9 @@ subprojects {
     jacocoTestReport {
         dependsOn test
         reports {
-            html.enabled true
-            csv.enabled false
-            xml.enabled false
+            html.required = true
+            csv.required = false
+            xml.required = false
         }
         finalizedBy 'jacocoTestCoverageVerification'
     }
@@ -68,7 +68,7 @@ subprojects {
                 limit {
                     counter = 'INSTRUCTION'
                     value = 'COVEREDRATIO'
-                    // minimum = 0.98
+                    minimum = 1.0
                 }
             }
         }
