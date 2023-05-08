@@ -1,4 +1,4 @@
-package com.violetbeach.kistradingserver;
+package com.violetbeach;
 
 import com.violetbeach.DataProcessingServerApplication;
 import org.junit.jupiter.api.Test;

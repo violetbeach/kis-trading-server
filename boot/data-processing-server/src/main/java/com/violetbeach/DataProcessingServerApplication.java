@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class DataProcessingServerApplication {
+class DataProcessingServerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DataProcessingServerApplication.class, args);
