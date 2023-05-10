@@ -1,5 +1,9 @@
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-quartz'
+    implementation 'org.springframework.boot:spring-boot-starter-batch'
+    implementation 'org.springframework:spring-context-support'
+
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 
     testImplementation 'org.mockito:mockito-inline'
 }

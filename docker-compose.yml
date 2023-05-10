@@ -1,0 +1,12 @@
+version: "3"
+services:
+  main-db:
+    image: mariadb:10.6.8
+    container_name: kis-trading-db
+    ports:
+      - "8641:3306"
+    volumes:
+      - ./sql/ddl/:/docker-entrypoint-initdb.d/
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    restart: always

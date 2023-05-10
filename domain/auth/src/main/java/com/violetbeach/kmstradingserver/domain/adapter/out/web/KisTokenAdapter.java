@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 class KisTokenAdapter implements IssueTokenPort {
     private final KISTokenClient kisTokenClient;
-    
+
     @Override
     public void issueToken() {
         kisTokenClient.issueToken();
