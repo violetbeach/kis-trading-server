@@ -1,4 +1,4 @@
-package com.violetbeach;
+package com.violetbeach.kistradingserver;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
