@@ -1,0 +1,15 @@
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 500
+        readTimeout: 500
+        loggerLevel: full
+      cache-api:
+        defaultRequestHeaders:
+          appkey: ${KIS_APP_KEY}
+          appsecret: ${KIS_SECRET_KEY}
+
+apis:
+  kis:
+    url: https://openapi.koreainvestment.com:9443
