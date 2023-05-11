@@ -5,7 +5,7 @@ feign:
         connectTimeout: 500
         readTimeout: 500
         loggerLevel: full
-      cache-api:
+      kis-client:
         defaultRequestHeaders:
           appkey: ${KIS_APP_KEY}
           appsecret: ${KIS_SECRET_KEY}
