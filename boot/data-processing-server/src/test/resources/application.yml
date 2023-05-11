@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    include:
+      - test
+      - auth
+
+  datasource:
+    url: jdbc:h2:mem:trading;MODE=MYSQL;
+
+    jpa:
+      properties:
+        hibernate:
+          show_sql: true
+          format_sql: true
+
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: always

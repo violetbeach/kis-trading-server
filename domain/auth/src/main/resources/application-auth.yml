@@ -13,3 +13,13 @@ apis:
       grant-type: client_credentials
       app-key: ${KIS_APP_KEY}
       secret-key: ${KIS_SECRET_KEY}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+
+apis:
+  kis:
+    url: http://localhost:${wiremock.server.port}
