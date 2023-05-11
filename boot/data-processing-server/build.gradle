@@ -1,7 +1,9 @@
 dependencies {
+    implementation project(':domain:auth')
     implementation 'org.springframework.boot:spring-boot-starter-quartz'
     implementation 'org.springframework.boot:spring-boot-starter-batch'
     implementation 'org.springframework:spring-context-support'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.6'
 
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 
