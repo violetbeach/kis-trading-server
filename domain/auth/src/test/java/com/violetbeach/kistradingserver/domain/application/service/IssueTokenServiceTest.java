@@ -1,6 +1,6 @@
-package com.violetbeach.kmstradingserver.domain.application.service;
+package com.violetbeach.kistradingserver.domain.application.service;
 
-import com.violetbeach.kmstradingserver.domain.application.port.out.IssueTokenPort;
+import com.violetbeach.kistradingserver.domain.application.port.out.IssueTokenPort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
