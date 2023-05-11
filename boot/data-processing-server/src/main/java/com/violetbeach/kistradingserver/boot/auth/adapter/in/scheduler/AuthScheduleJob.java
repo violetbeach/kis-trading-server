@@ -11,6 +11,7 @@ import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Component
@@ -23,7 +24,7 @@ public class AuthScheduleJob extends QuartzJobBean {
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
         JobParameters jobParameters = new JobParametersBuilder()
-                .addString("tmp", UUID.randomUUID().toString())
+                .addString("requestDate", LocalDateTime.now().toString())
                 .toJobParameters();
         try {
             jobLauncher.run(dataProcessJob, jobParameters);
