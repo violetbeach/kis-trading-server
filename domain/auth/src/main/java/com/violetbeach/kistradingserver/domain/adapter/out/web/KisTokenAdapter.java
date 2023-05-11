@@ -8,9 +8,18 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 class KisTokenAdapter implements IssueTokenPort {
     private final KISTokenClient kisTokenClient;
-
+    private final AuthKeys authKeys;
     @Override
     public void issueToken() {
-        kisTokenClient.issueToken();
+        IssueTokenRequest request = initRequest();
+        kisTokenClient.issueToken(request);
+    }
+
+    private IssueTokenRequest initRequest() {
+        return new IssueTokenRequest(
+                authKeys.grantType(),
+                authKeys.appKey(),
+                authKeys.secretKey()
+        );
     }
 }
