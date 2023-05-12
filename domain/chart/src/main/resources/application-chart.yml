@@ -1,0 +1,25 @@
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 500
+        readTimeout: 500
+        loggerLevel: full
+
+apis:
+  kis:
+    url: https://openapi.koreainvestment.com:9443
+    keys:
+      grant-type: client_credentials
+      app-key: ${KIS_APP_KEY}
+      secret-key: ${KIS_SECRET_KEY}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+
+apis:
+  kis:
+    url: http://localhost:${wiremock.server.port}
