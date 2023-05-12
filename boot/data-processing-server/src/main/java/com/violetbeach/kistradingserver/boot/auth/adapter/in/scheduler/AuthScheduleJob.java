@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Component
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthScheduleJob extends QuartzJobBean {
+class AuthScheduleJob extends QuartzJobBean {
     private Job dataProcessJob;
     private JobLauncher jobLauncher;
 

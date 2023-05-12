@@ -1,4 +1,4 @@
-package com.violetbeach.kistradingserver.boot.auth.adapter.in.scheduler.job;
+package com.violetbeach.kistradingserver.boot.auth.adapter.in.scheduler;
 
 import com.violetbeach.kistradingserver.boot.auth.adapter.in.scheduler.AuthScheduleJob;
 import org.quartz.JobDetail;
@@ -13,7 +13,7 @@ import org.springframework.scheduling.quartz.SpringBeanJobFactory;
 import static org.quartz.JobBuilder.newJob;
 
 @Configuration
-public class AuthJobScheduleConfig {
+class AuthJobScheduleConfig {
 
     @Bean
     public JobDetail authJobDetail() {
