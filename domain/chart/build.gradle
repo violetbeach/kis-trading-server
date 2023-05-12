@@ -1,0 +1,7 @@
+bootJar { enabled = false }
+jar { enabled = true }
+
+dependencies {
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+}
