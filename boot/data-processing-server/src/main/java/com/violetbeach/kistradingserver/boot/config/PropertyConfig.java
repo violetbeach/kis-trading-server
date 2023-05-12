@@ -1,4 +1,4 @@
-package com.violetbeach.kistradingserver.domain.config;
+package com.violetbeach.kistradingserver.boot.config;
 
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.Configuration;
