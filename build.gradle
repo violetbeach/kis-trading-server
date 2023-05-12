@@ -14,7 +14,7 @@ buildscript {
 }
 
 allprojects {
-    group = 'com.violetbeach'
+    group = 'com.violetbeach.kistradingserver'
     version = '0.0.1-SNAPSHOT'
 }
 
