@@ -1,3 +1,4 @@
 rootProject.name = 'kis-trading-server'
 include 'boot:data-processing-server'
 include 'domain:auth'
+include 'domain:chart'
