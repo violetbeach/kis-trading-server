@@ -1,6 +1,5 @@
 package com.violetbeach.kistradingserver;
 
-import com.violetbeach.kistradingserver.DataProcessingServerApplication;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import org.springframework.boot.SpringApplication;
