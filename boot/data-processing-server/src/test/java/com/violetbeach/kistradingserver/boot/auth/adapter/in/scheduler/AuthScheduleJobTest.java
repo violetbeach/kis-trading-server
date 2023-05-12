@@ -1,19 +1,16 @@
 package com.violetbeach.kistradingserver.boot.auth.adapter.in.scheduler;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameters;
-import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
-
-import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
@@ -21,12 +18,16 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class AuthScheduleJobTest {
-    @InjectMocks
-    private AuthScheduleJob authScheduleJob;
+    AuthScheduleJob authScheduleJob;
     @Mock
-    private Job dataProcessJob;
+    Job dataProcessJob;
     @Mock
-    private JobLauncher jobLauncher;
+    JobLauncher jobLauncher;
+
+    @BeforeEach
+    void setup() {
+        authScheduleJob = new AuthScheduleJob(dataProcessJob, jobLauncher);
+    }
 
     @Test
     public void ItCallJobLauncherRun() throws Exception {
