@@ -3,22 +3,18 @@ package fixture.domain;
 import com.violetbeach.kistradingserver.domain.domain.Candle;
 import com.violetbeach.kistradingserver.domain.domain.Money;
 import com.violetbeach.kistradingserver.domain.domain.Volume;
-import lombok.Getter;
-import lombok.experimental.Accessors;
 
-@Getter
-@Accessors(fluent = true)
+import java.time.LocalTime;
+
 public enum CandleFixture {
-    삼성전자_분봉("005930", new Money(14400L), "123000", new Money(14600L), new Money(14200L), new Volume(12000));
-    private final String stockCode;
+    삼성전자_분봉(new Money(14400L), LocalTime.of(12, 30, 0), new Money(14600L), new Money(14200L), new Volume(12000));
     private final Money price;
-    private final String baseTime;
+    private final LocalTime baseTime;
     private final Money highPrice;
     private final Money lowPrice;
     private final Volume volume;
 
-    CandleFixture(String stockCode, Money price, String baseTime, Money highPrice, Money lowPrice, Volume volume) {
-        this.stockCode = stockCode;
+    CandleFixture(Money price, LocalTime baseTime, Money highPrice, Money lowPrice, Volume volume) {
         this.price = price;
         this.baseTime = baseTime;
         this.highPrice = highPrice;
@@ -28,7 +24,6 @@ public enum CandleFixture {
 
     public Candle getCandle() {
         return new Candle(
-                this.stockCode,
                 this.price,
                 this.baseTime,
                 this.highPrice,
