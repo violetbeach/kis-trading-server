@@ -60,7 +60,7 @@ class KisChartAdapterTest {
                             () -> assertThat(actualCandle.getBaseTime()).isEqualTo(expectCandle.baseTime()),
                             () -> assertThat(actualCandle.getHighPrice()).isEqualTo(expectCandle.highPrice()),
                             () -> assertThat(actualCandle.getLowPrice()).isEqualTo(expectCandle.lowPrice()),
-                            () -> assertThat(actualCandle.getVolume().value()).isEqualTo(expectCandle.volume())
+                            () -> assertThat(actualCandle.getVolume()).isEqualTo(expectCandle.volume())
                     );
                 });
     }

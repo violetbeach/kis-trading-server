@@ -17,12 +17,13 @@ public class Candle {
     public Long getPrice() {
         return price.getValue();
     }
-
     public Long getHighPrice() {
         return highPrice.getValue();
     }
-
     public Long getLowPrice() {
         return lowPrice.getValue();
+    }
+    public Long getVolume() {
+        return volume.getValue();
     }
 }
