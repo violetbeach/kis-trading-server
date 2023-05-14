@@ -20,13 +20,13 @@ import static org.mockito.Mockito.*;
 class AuthScheduleJobTest {
     AuthScheduleJob authScheduleJob;
     @Mock
-    Job dataProcessJob;
+    Job authJob;
     @Mock
     JobLauncher jobLauncher;
 
     @BeforeEach
     void setup() {
-        authScheduleJob = new AuthScheduleJob(dataProcessJob, jobLauncher);
+        authScheduleJob = new AuthScheduleJob(authJob, jobLauncher);
     }
 
     @Test
@@ -38,14 +38,14 @@ class AuthScheduleJobTest {
         authScheduleJob.executeInternal(jobExecutionContext);
 
         // then
-        verify(jobLauncher, times(1)).run(eq(dataProcessJob), any(JobParameters.class));
+        verify(jobLauncher, times(1)).run(eq(authJob), any(JobParameters.class));
     }
 
     @Test
     public void withBatchJobException_ItThrowsJobExecution() throws Exception {
         // given
         JobExecutionContext jobExecutionContext = mock(JobExecutionContext.class);
-        given(jobLauncher.run(eq(dataProcessJob), any(JobParameters.class)))
+        given(jobLauncher.run(eq(authJob), any(JobParameters.class)))
                 .willThrow(new JobExecutionAlreadyRunningException(""));
 
         // when & then

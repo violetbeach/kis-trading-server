@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 class AuthScheduleJob extends QuartzJobBean {
-    private Job dataProcessJob;
+    private Job authJob;
     private JobLauncher jobLauncher;
 
     @Override
@@ -26,7 +26,7 @@ class AuthScheduleJob extends QuartzJobBean {
                 .addString("requestDate", LocalDateTime.now().toString())
                 .toJobParameters();
         try {
-            jobLauncher.run(dataProcessJob, jobParameters);
+            jobLauncher.run(authJob, jobParameters);
         } catch (Exception e) {
             throw new JobExecutionException(e);
         }
