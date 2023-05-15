@@ -22,9 +22,9 @@ import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
 class KisChartAdapterTest {
-    private KisChartAdapter adapter;
+    KisChartAdapter adapter;
     @Mock
-    private KISChartClient kisChartClient;
+    KISChartClient kisChartClient;
 
     @BeforeEach
     void setUp() {
