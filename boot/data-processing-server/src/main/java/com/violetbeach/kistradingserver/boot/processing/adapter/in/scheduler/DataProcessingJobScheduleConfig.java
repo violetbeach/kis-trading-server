@@ -1,10 +1,6 @@
-package com.violetbeach.kistradingserver.boot.auth.adapter.in.scheduler;
+package com.violetbeach.kistradingserver.boot.processing.adapter.in.scheduler;
 
-import com.violetbeach.kistradingserver.boot.auth.adapter.in.scheduler.AuthScheduleJob;
-import org.quartz.JobDetail;
-import org.quartz.SimpleScheduleBuilder;
-import org.quartz.Trigger;
-import org.quartz.TriggerBuilder;
+import org.quartz.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
@@ -13,32 +9,34 @@ import org.springframework.scheduling.quartz.SpringBeanJobFactory;
 import static org.quartz.JobBuilder.newJob;
 
 @Configuration
-class AuthJobScheduleConfig {
+class DataProcessingJobScheduleConfig {
 
     @Bean
-    public JobDetail authJobDetail() {
-        return newJob(AuthScheduleJob.class)
-                .withIdentity("authJob")
+    public JobDetail dataProcessingJobDetail() {
+        return newJob(DataProcessingScheduleJob.class)
+                .withIdentity("dataProcessingJob")
                 .storeDurably()
                 .build();
     }
 
     @Bean
-    public Trigger authJobTrigger(JobDetail jobDetail) {
+    public Trigger dataProcessingJobTrigger(JobDetail dataProcessingJobDetail) {
         SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder
                 .simpleSchedule()
-                .withIntervalInHours(6)
+                .withIntervalInMinutes(30)
                 .repeatForever();
 
         return TriggerBuilder.newTrigger()
-                .forJob(jobDetail)
-                .withIdentity("authJobTrigger")
+                .forJob(dataProcessingJobDetail)
+                .withIdentity("dataProcessingJobTrigger")
                 .withSchedule(scheduleBuilder)
+                .startAt(DateBuilder.todayAt(8, 10, 0))
+                .endAt(DateBuilder.todayAt(18, 10, 0))
                 .build();
     }
 
     @Bean
-    public SchedulerFactoryBean authJobSchedulerFactory(Trigger authJobTrigger, JobDetail authJobDetail, SpringBeanJobFactory jobFactory) {
+    public SchedulerFactoryBean dataProcessingJobSchedulerFactory(Trigger authJobTrigger, JobDetail authJobDetail, SpringBeanJobFactory jobFactory) {
         SchedulerFactoryBean schedulerFactory = new SchedulerFactoryBean();
         schedulerFactory.setTriggers(authJobTrigger);
         schedulerFactory.setJobDetails(authJobDetail);

@@ -4,7 +4,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "kis-client", url = "${apis.kis.url}")
+@FeignClient(name = "kis-chart-client", url = "${apis.kis.url}")
 interface KISTokenClient {
 
     @PostMapping("/oauth2/tokenP")
