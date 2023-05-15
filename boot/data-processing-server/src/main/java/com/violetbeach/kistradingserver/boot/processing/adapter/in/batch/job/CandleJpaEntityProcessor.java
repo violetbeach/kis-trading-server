@@ -5,16 +5,16 @@ import org.springframework.batch.item.ItemProcessor;
 import org.springframework.stereotype.Component;
 
 @Component
-class CandleJpaEntityProcessor implements ItemProcessor<Candle, CandleJpaEntity> {
+class CandleJpaEntityProcessor implements ItemProcessor<Candle, CandleVO> {
 
     @Override
-    public CandleJpaEntity process(Candle candle) {
-        CandleJpaEntity entity = toEntity(candle);
+    public CandleVO process(Candle candle) {
+        CandleVO entity = toEntity(candle);
         return entity;
     }
 
-    private CandleJpaEntity toEntity(Candle candle) {
-        CandleJpaEntity entity = new CandleJpaEntity(
+    private CandleVO toEntity(Candle candle) {
+        CandleVO entity = new CandleVO(
                 candle.getPrice(),
                 candle.getBaseTime(),
                 candle.getHighPrice(),
