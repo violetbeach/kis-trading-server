@@ -2,6 +2,7 @@ package fixture.domain;
 
 import com.violetbeach.kistradingserver.domain.domain.Candle;
 import com.violetbeach.kistradingserver.domain.domain.MinutesChart;
+import com.violetbeach.kistradingserver.domain.domain.StockCode;
 import lombok.Getter;
 import lombok.experimental.Accessors;
 
@@ -22,7 +23,7 @@ public enum MinutesChartFixture {
 
     public MinutesChart getChart() {
         return new MinutesChart(
-                this.stockCode,
+                new StockCode(this.stockCode),
                 this.candles
         );
     }

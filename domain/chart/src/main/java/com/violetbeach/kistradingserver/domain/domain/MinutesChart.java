@@ -9,7 +9,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MinutesChart {
 
-    private final String stockCode;
+    private final StockCode stockCode;
     private final List<Candle> candles;
 
 }

@@ -2,10 +2,7 @@ package com.violetbeach.kistradingserver.domain.adapter.out.web;
 
 import com.violetbeach.kistradingserver.domain.application.port.out.LoadMinutesChartPort;
 import com.violetbeach.kistradingserver.domain.application.port.out.LoadMinutesChartRequest;
-import com.violetbeach.kistradingserver.domain.domain.Candle;
-import com.violetbeach.kistradingserver.domain.domain.MinutesChart;
-import com.violetbeach.kistradingserver.domain.domain.Money;
-import com.violetbeach.kistradingserver.domain.domain.Volume;
+import com.violetbeach.kistradingserver.domain.domain.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -25,7 +22,7 @@ class KisChartAdapter implements LoadMinutesChartPort {
     }
 
     private MinutesChart makeChart(String stockCode, GetMinutesChartResponse response) {
-        return new MinutesChart(stockCode, getCandles(response));
+        return new MinutesChart(new StockCode(stockCode), getCandles(response));
     }
 
     private List<Candle> getCandles(GetMinutesChartResponse response) {
