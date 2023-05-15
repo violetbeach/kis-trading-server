@@ -1,4 +1,4 @@
-package com.violetbeach.kistradingserver.boot.processing.domain;
+package com.violetbeach.kistradingserver.boot.processing.application.service;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;

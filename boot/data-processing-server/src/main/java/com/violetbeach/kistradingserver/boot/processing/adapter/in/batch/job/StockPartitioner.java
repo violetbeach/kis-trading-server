@@ -1,6 +1,6 @@
 package com.violetbeach.kistradingserver.boot.processing.adapter.in.batch.job;
 
-import com.violetbeach.kistradingserver.boot.processing.domain.TargetStocks;
+import com.violetbeach.kistradingserver.boot.processing.application.service.TargetStocks;
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.partition.support.Partitioner;
 import org.springframework.batch.item.ExecutionContext;
