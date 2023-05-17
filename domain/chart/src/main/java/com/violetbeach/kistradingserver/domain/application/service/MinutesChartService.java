@@ -6,7 +6,9 @@ import com.violetbeach.kistradingserver.domain.application.port.out.LoadMinutesC
 import com.violetbeach.kistradingserver.domain.application.port.out.LoadMinutesChartRequest;
 import com.violetbeach.kistradingserver.domain.domain.MinutesChart;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 @RequiredArgsConstructor
 class MinutesChartService implements GetMinutesChartUseCase {
 
