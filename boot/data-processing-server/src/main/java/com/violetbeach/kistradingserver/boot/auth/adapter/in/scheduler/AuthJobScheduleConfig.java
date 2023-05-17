@@ -24,14 +24,14 @@ class AuthJobScheduleConfig {
     }
 
     @Bean
-    public Trigger authJobTrigger(JobDetail jobDetail) {
+    public Trigger authJobTrigger(JobDetail authJobDetail) {
         SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder
                 .simpleSchedule()
                 .withIntervalInHours(6)
                 .repeatForever();
 
         return TriggerBuilder.newTrigger()
-                .forJob(jobDetail)
+                .forJob(authJobDetail)
                 .withIdentity("authJobTrigger")
                 .withSchedule(scheduleBuilder)
                 .build();
