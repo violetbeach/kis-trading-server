@@ -36,10 +36,10 @@ class DataProcessingJobScheduleConfig {
     }
 
     @Bean
-    public SchedulerFactoryBean dataProcessingJobSchedulerFactory(Trigger authJobTrigger, JobDetail authJobDetail, SpringBeanJobFactory jobFactory) {
+    public SchedulerFactoryBean dataProcessingJobSchedulerFactory(Trigger dataProcessingJobTrigger, JobDetail dataProcessingJobDetail, SpringBeanJobFactory jobFactory) {
         SchedulerFactoryBean schedulerFactory = new SchedulerFactoryBean();
-        schedulerFactory.setTriggers(authJobTrigger);
-        schedulerFactory.setJobDetails(authJobDetail);
+        schedulerFactory.setTriggers(dataProcessingJobTrigger);
+        schedulerFactory.setJobDetails(dataProcessingJobDetail);
         schedulerFactory.setJobFactory(jobFactory);
         return schedulerFactory;
     }
