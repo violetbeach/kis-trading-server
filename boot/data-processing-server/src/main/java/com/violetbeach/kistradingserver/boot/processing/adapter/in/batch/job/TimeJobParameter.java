@@ -12,7 +12,7 @@ class TimeJobParameter {
 
     private LocalTime baseTime;
 
-    @Value("#{jobParameters[baseTime]}")
+    @Value("#{jobParameters['baseTime']}")
     public void setBaseTime(String baseTime) {
         this.baseTime = LocalTime.parse(baseTime);
     }

@@ -15,9 +15,9 @@ class DataProcessingJobConfiguration {
     private final JobBuilderFactory jobBuilderFactory;
 
     @Bean
-    public Job dataProcessingJob(Step chartProcessingStep) {
+    public Job dataProcessingJob(Step chartProcessingMasterStep) {
         return jobBuilderFactory.get("dataProcessingJob")
-                .start(chartProcessingStep)
+                .start(chartProcessingMasterStep)
                 .build();
     }
 

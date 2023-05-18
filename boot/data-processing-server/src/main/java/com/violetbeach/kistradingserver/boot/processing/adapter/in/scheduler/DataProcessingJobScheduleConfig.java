@@ -23,15 +23,13 @@ class DataProcessingJobScheduleConfig {
     public Trigger dataProcessingJobTrigger(JobDetail dataProcessingJobDetail) {
         SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder
                 .simpleSchedule()
-                .withIntervalInMinutes(30)
+                .withIntervalInMinutes(1)
                 .repeatForever();
 
         return TriggerBuilder.newTrigger()
                 .forJob(dataProcessingJobDetail)
                 .withIdentity("dataProcessingJobTrigger")
                 .withSchedule(scheduleBuilder)
-                .startAt(DateBuilder.todayAt(8, 10, 0))
-                .endAt(DateBuilder.todayAt(18, 10, 0))
                 .build();
     }
 
