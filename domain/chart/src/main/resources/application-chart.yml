@@ -5,14 +5,14 @@ feign:
         connectTimeout: 500
         readTimeout: 500
         loggerLevel: full
+        default-request-headers:
+          appkey: ${KIS_APP_KEY}
+          appsecret: ${KIS_SECRET_KEY}
+          tr_id: FHKST03010200
 
 apis:
   kis:
     url: https://openapi.koreainvestment.com:9443
-    keys:
-      grant-type: client_credentials
-      app-key: ${KIS_APP_KEY}
-      secret-key: ${KIS_SECRET_KEY}
 
 ---
 spring:
