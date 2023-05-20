@@ -1,17 +1,25 @@
 package com.violetbeach.kistradingserver.domain.domain;
 
-public class Token {
-    private final String token;
-    private final String type;
+import java.time.LocalDateTime;
 
-    public Token(String token, String type) {
-        validTokenNotEmpty(token);
-        this.token = token;
-        this.type = type;
+
+public record Token (
+        String accessToken,
+        String type,
+        LocalDateTime expirationTime
+) {
+    public Token {
+        validTokenNotEmpty(accessToken);
+    }
+
+    public boolean willExpireIn(int minutes) {
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime AfterMinutes = now.plusMinutes(minutes);
+        return expirationTime.isBefore(AfterMinutes);
     }
 
     private void validTokenNotEmpty(String token) {
-        if(token.length() <= 0) {
+        if (token.length() <= 0) {
             throw new IllegalArgumentException("토큰은 비어있을 수 없습니다.");
         }
     }

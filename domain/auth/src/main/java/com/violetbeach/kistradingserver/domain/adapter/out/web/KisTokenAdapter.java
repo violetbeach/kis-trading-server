@@ -23,8 +23,8 @@ class KisTokenAdapter implements IssueTokenPort {
     private Token getToken(IssueTokenResponse response) {
         return new Token(
                 response.accessToken(),
-                response.type()
-        );
+                response.type(),
+                response.expireDate());
     }
 
     private IssueTokenRequest initRequest() {
