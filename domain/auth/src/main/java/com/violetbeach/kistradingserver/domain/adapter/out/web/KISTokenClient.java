@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 interface KISTokenClient {
 
     @PostMapping("/oauth2/tokenP")
-    void issueToken(@RequestBody IssueTokenRequest issueTokenRequest);
+    IssueTokenResponse issueToken(@RequestBody IssueTokenRequest issueTokenRequest);
 
 }

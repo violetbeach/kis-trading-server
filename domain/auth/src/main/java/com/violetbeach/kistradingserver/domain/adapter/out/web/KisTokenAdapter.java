@@ -1,6 +1,8 @@
 package com.violetbeach.kistradingserver.domain.adapter.out.web;
 
 import com.violetbeach.kistradingserver.domain.application.port.out.IssueTokenPort;
+import com.violetbeach.kistradingserver.domain.application.service.TokenContextHolder;
+import com.violetbeach.kistradingserver.domain.domain.Token;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +14,17 @@ class KisTokenAdapter implements IssueTokenPort {
     @Override
     public void issueToken() {
         IssueTokenRequest request = initRequest();
-        kisTokenClient.issueToken(request);
+        IssueTokenResponse response = kisTokenClient.issueToken(request);
+
+        Token token = getToken(response);
+        TokenContextHolder.setAuthToken(token);
+    }
+
+    private Token getToken(IssueTokenResponse response) {
+        return new Token(
+                response.accessToken(),
+                response.type()
+        );
     }
 
     private IssueTokenRequest initRequest() {
