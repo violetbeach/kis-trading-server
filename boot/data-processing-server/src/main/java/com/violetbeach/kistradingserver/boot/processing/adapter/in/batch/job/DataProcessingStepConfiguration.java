@@ -31,6 +31,7 @@ class DataProcessingStepConfiguration {
     private static final int chunkSize = 10;
 
     @Bean
+    @JobScope
     public Step chartProcessingMasterStep() {
         return stepBuilderFactory.get("chartProcessingMasterStep")
                 .partitioner("chartProcessingMasterStep", chartPartitioner)
@@ -62,7 +63,7 @@ class DataProcessingStepConfiguration {
     @Bean
     @StepScope
     public ItemReader<Candle> candleItemReader(final GetMinutesChartUseCase useCase,
-                                               final TimeJobParameter timeJobParameter,
+                                               final DateTimeJobParameter timeJobParameter,
                                                @Value("#{stepExecutionContext['stock_code']}") String stockCode) {
         return new CandleItemReader(useCase, stockCode, timeJobParameter);
     }
@@ -80,9 +81,9 @@ class DataProcessingStepConfiguration {
     }
 
     @Bean
-    @JobScope
-    public TimeJobParameter timeJobParameter() {
-        return new TimeJobParameter();
+    @StepScope
+    public DateTimeJobParameter timeJobParameter() {
+        return new DateTimeJobParameter();
     }
 
 }

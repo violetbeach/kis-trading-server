@@ -23,7 +23,7 @@ class DataProcessingScheduleJob extends QuartzJobBean {
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
         JobParameters jobParameters = new JobParametersBuilder()
-                .addString("requestDate", LocalDateTime.now().toString())
+                .addString("requestDateTime", LocalDateTime.now().toString())
                 .toJobParameters();
         try {
             jobLauncher.run(dataProcessingJob, jobParameters);

@@ -14,7 +14,7 @@ class GetMinutesChartCommand {
     @JsonProperty("FID_INPUT_ISCD")
     private final String stockCode;
     @JsonProperty("FID_INPUT_HOUR_1")
-    @DateTimeFormat(pattern = "HHmmSS")
+    @DateTimeFormat(pattern = "HHmmss")
     private final LocalTime time;
     @JsonProperty("FID_PW_DATA_INCU_YN")
     @JsonFormat(shape = JsonFormat.Shape.BOOLEAN)
