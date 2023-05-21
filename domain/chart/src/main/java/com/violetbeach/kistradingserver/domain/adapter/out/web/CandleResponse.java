@@ -13,7 +13,7 @@ record CandleResponse(
         @DateTimeFormat(pattern = "yyyyMMdd")
         LocalDate baseDate,
         @JsonProperty("stck_cntg_hour")
-        @DateTimeFormat(pattern = "HHmmSS")
+        @DateTimeFormat(pattern = "HHmmss")
         LocalTime baseTime,
         @JsonProperty("stck_hgpr")
         Long highPrice,
