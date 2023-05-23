@@ -1,7 +1,9 @@
 package com.violetbeach.kistradingserver.domain.application.port.in;
 
+import com.violetbeach.kistradingserver.domain.domain.Token;
+
 public interface IssueTokenUseCase {
 
-    void issueToken();
+    Token issueToken();
 
 }

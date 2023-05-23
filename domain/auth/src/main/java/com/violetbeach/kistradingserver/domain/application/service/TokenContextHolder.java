@@ -3,14 +3,14 @@ package com.violetbeach.kistradingserver.domain.application.service;
 import com.violetbeach.kistradingserver.domain.domain.Token;
 
 public class TokenContextHolder {
-    private static final ThreadLocal<Token> threadLocal = new ThreadLocal<>();
+    private static Token token;
 
     public static Token getToken() {
-        return threadLocal.get();
+        return token;
     }
 
     public static void setAuthToken(Token token) {
-        threadLocal.set(token);
+        TokenContextHolder.token = token;
     }
 
 }

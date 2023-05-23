@@ -1,6 +1,7 @@
 package com.violetbeach.kistradingserver.boot.config.feign;
 
 import com.violetbeach.kistradingserver.domain.application.port.in.IssueTokenUseCase;
+import com.violetbeach.kistradingserver.domain.application.service.TokenContextHolder;
 import com.violetbeach.kistradingserver.domain.domain.Token;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
@@ -20,14 +21,15 @@ public class AuthInterceptor implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate template) {
         Token token = getToken();
-        renewToken(token);
+        token = renewToken(token);
         template.header("Authorization", toHeader(token));
     }
 
-    private void renewToken(Token token) {
+    private Token renewToken(Token token) {
         if(Objects.isNull(token) || token.willExpireIn(20)) {
-            issueTokenUseCase.issueToken();
+            return issueTokenUseCase.issueToken();
         }
+        return token;
     }
 
     private String toHeader(Token token) {
