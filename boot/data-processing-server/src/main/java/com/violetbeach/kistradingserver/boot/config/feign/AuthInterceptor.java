@@ -1,7 +1,6 @@
 package com.violetbeach.kistradingserver.boot.config.feign;
 
 import com.violetbeach.kistradingserver.domain.application.port.in.IssueTokenUseCase;
-import com.violetbeach.kistradingserver.domain.application.service.TokenContextHolder;
 import com.violetbeach.kistradingserver.domain.domain.Token;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
-import static com.violetbeach.kistradingserver.domain.application.service.TokenContextHolder.*;
+import static com.violetbeach.kistradingserver.domain.application.service.TokenContextHolder.getToken;
 
 @Component
 @RequiredArgsConstructor
