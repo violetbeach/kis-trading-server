@@ -69,7 +69,7 @@ class DataProcessingStepConfiguration {
     }
 
     @Bean
-    @JobScope
+    @StepScope
     public JdbcBatchItemWriter<CandleVO> candleBatchItemWriter(@Value("#{jobParameters['stock_code']}") String stockCode) {
         return new JdbcBatchItemWriterBuilder<CandleVO>()
                 .dataSource(dataSource)
@@ -77,6 +77,7 @@ class DataProcessingStepConfiguration {
                     INSERT INTO candle(stick_code, price, high_price, low_price, volume, base_time)
                         values(:stock_code, :price, :baseTime, :highPrice, :lowPrice, :volume, :baseTime)
                     """)
+                .beanMapped()
                 .build();
     }
 
