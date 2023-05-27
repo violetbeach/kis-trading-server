@@ -35,7 +35,6 @@ class DataProcessingStepConfiguration {
         return stepBuilderFactory.get("chartProcessingMasterStep")
                 .partitioner("chartProcessingMasterStep", chartPartitioner)
                 .step(chartProcessingSubStep())
-                .gridSize(5)
                 .taskExecutor(taskExecutor())
                 .build();
     }
