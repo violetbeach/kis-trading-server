@@ -1,11 +1,13 @@
 package com.violetbeach.kistradingserver.boot.processing.adapter.in.batch.job;
 
 import com.violetbeach.kistradingserver.domain.domain.Candle;
+import lombok.RequiredArgsConstructor;
 import org.springframework.batch.item.ItemProcessor;
-import org.springframework.stereotype.Component;
 
-@Component
-class CandleJpaEntityProcessor implements ItemProcessor<Candle, CandleVO> {
+@RequiredArgsConstructor
+class CandleEntityProcessor implements ItemProcessor<Candle, CandleVO> {
+
+    private final String stockCode;
 
     @Override
     public CandleVO process(Candle candle) {
@@ -15,6 +17,7 @@ class CandleJpaEntityProcessor implements ItemProcessor<Candle, CandleVO> {
 
     private CandleVO toEntity(Candle candle) {
         CandleVO entity = new CandleVO(
+                stockCode,
                 candle.getPrice(),
                 candle.getBaseTime(),
                 candle.getHighPrice(),

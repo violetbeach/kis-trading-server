@@ -25,7 +25,6 @@ class DataProcessingStepConfiguration {
 
     private final StepBuilderFactory stepBuilderFactory;
     private final StockPartitioner chartPartitioner;
-    private final ItemProcessor<Candle, CandleVO> candleJpaEntityProcessor;
     private final GetMinutesChartUseCase getMinutesChartUseCase;
     private final DataSource dataSource;
     private static final int chunkSize = 10;
@@ -46,8 +45,8 @@ class DataProcessingStepConfiguration {
         return stepBuilderFactory.get("chartProcessingSubStep")
                 .<Candle, CandleVO>chunk(chunkSize)
                 .reader(candleItemReader(getMinutesChartUseCase, timeJobParameter(), null))
-                .processor(candleJpaEntityProcessor)
-                .writer(candleBatchItemWriter(null))
+                .processor(candleItemProcessor(null))
+                .writer(candleBatchItemWriter())
                 .build();
     }
 
@@ -70,12 +69,19 @@ class DataProcessingStepConfiguration {
 
     @Bean
     @StepScope
-    public JdbcBatchItemWriter<CandleVO> candleBatchItemWriter(@Value("#{jobParameters['stock_code']}") String stockCode) {
+    public ItemProcessor<Candle, CandleVO> candleItemProcessor(
+            @Value("#{stepExecutionContext['stock_code']}") String stockCode) {
+        return new CandleEntityProcessor(stockCode);
+    }
+
+    @Bean
+    @StepScope
+    public JdbcBatchItemWriter<CandleVO> candleBatchItemWriter() {
         return new JdbcBatchItemWriterBuilder<CandleVO>()
                 .dataSource(dataSource)
                 .sql("""
                     INSERT INTO candle(stick_code, price, high_price, low_price, volume, base_time)
-                        values(:stock_code, :price, :baseTime, :highPrice, :lowPrice, :volume, :baseTime)
+                        values(:stockCode, :price, :highPrice, :lowPrice, :volume, :baseTime)
                     """)
                 .beanMapped()
                 .build();
