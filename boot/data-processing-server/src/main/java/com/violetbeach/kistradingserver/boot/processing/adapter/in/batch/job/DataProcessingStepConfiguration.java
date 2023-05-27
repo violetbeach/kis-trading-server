@@ -80,7 +80,7 @@ class DataProcessingStepConfiguration {
         return new JdbcBatchItemWriterBuilder<CandleVO>()
                 .dataSource(dataSource)
                 .sql("""
-                    INSERT INTO candle(stick_code, price, high_price, low_price, volume, base_time)
+                    INSERT INTO candle(stock_code, price, high_price, low_price, volume, base_time)
                         values(:stockCode, :price, :highPrice, :lowPrice, :volume, :baseTime)
                     """)
                 .beanMapped()

@@ -13,7 +13,7 @@ public class StockCode {
 
     private void validStockCode(String stockCode) {
         if(stockCode.length() != 6) {
-            throw new IllegalArgumentException("현금은 0원 이상이여야 합니다.");
+            throw new IllegalArgumentException("종목 코드는 6자리여야 합니다.");
         }
     }
 

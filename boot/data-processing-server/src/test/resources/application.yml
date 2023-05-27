@@ -13,8 +13,17 @@ spring:
           show_sql: true
           format_sql: true
 
+  sql:
+    init:
+      schema-locations: classpath:sql/ddl/*
+      mode: always
+
   batch:
     job:
       enabled: false
     jdbc:
       initialize-schema: always
+
+data-processing:
+  target-stock-codes:
+    "000001"
