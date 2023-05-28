@@ -9,6 +9,7 @@ import org.springframework.batch.core.configuration.annotation.StepBuilderFactor
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
 import org.springframework.batch.item.database.builder.JdbcBatchItemWriterBuilder;
 import org.springframework.beans.factory.annotation.Value;
@@ -74,16 +75,8 @@ class DataProcessingStepConfiguration {
     }
 
     @Bean
-    @StepScope
-    public JdbcBatchItemWriter<CandleVO> candleBatchItemWriter() {
-        return new JdbcBatchItemWriterBuilder<CandleVO>()
-                .dataSource(dataSource)
-                .sql("""
-                    INSERT INTO candle(stock_code, price, high_price, low_price, volume, base_time)
-                        values(:stockCode, :price, :highPrice, :lowPrice, :volume, :baseTime)
-                    """)
-                .beanMapped()
-                .build();
+    public ItemWriter<CandleVO> candleBatchItemWriter() {
+        return new CandleBatchItemWriter(dataSource);
     }
 
     @Bean

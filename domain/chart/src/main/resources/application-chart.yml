@@ -26,14 +26,6 @@ spring:
     activate:
       on-profile: test
 
-  datasource:
-    url: jdbc:h2:mem:trading;MODE=MYSQL;
-
-  sql:
-    init:
-      schema-locations: classpath:sql/ddl/*
-      mode: always
-
 # SQL init log
 logging:
   level:

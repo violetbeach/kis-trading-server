@@ -5,11 +5,20 @@ spring:
       - auth
       - chart
 
+  datasource:
+    url: jdbc:h2:mem:trading;MODE=MYSQL;
+
   batch:
     job:
       enabled: false
     jdbc:
       initialize-schema: always
+
+  sql:
+    init:
+      schema-locations: classpath:sql/ddl/*
+      data-locations: classpath:sql/init/*
+      mode: always
 
 data-processing:
   target-stock-codes:
