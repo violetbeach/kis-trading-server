@@ -14,7 +14,7 @@ class CandleItemReader implements ItemReader<Candle> {
     private final Queue<Candle> candleQueue;
 
     CandleItemReader(final GetMinutesChartUseCase useCase, final String stockCode, DateTimeJobParameter jobParameter) {
-        LocalDateTime requestDateTime = jobParameter.getRequestDateTime();
+        LocalDateTime requestDateTime = jobParameter.getBaseDateTime();
 
         GetMinutesChartRequest request = new GetMinutesChartRequest(stockCode, requestDateTime.toLocalTime());
         MinutesChart minutesChart = useCase.getMinutesChart(request);

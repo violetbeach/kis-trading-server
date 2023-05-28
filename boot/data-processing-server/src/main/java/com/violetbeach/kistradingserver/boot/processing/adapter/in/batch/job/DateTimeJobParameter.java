@@ -5,17 +5,16 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 @Getter
 @NoArgsConstructor
 class DateTimeJobParameter {
 
-    private LocalDateTime requestDateTime;
+    private LocalDateTime baseDateTime;
 
-    @Value("#{jobParameters['requestDateTime']}")
-    public void setBaseTime(String requestDateTime) {
-        this.requestDateTime = LocalDateTime.parse(requestDateTime);
+    @Value("#{jobParameters['baseDateTime']}")
+    public void setBaseDateTime(String baseDateTime) {
+        this.baseDateTime = LocalDateTime.parse(baseDateTime);
     }
 
 }

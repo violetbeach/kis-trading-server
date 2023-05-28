@@ -12,4 +12,8 @@ public class MinutesChart {
     private final StockCode stockCode;
     private final List<Candle> candles;
 
+    public int getCandlesSize() {
+        return candles.size();
+    }
+
 }
