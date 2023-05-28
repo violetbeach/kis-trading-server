@@ -10,7 +10,6 @@ dependencies {
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 
     testImplementation 'com.h2database:h2'
-    testImplementation 'org.mockito:mockito-inline'
     testImplementation 'org.springframework.batch:spring-batch-test'
     testImplementation 'org.springframework.cloud:spring-cloud-contract-wiremock'
     testImplementation 'org.springframework.boot:spring-boot-starter-web'
