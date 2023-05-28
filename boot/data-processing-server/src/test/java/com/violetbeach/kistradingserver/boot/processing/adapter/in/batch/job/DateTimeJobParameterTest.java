@@ -13,10 +13,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(MockitoExtension.class)
 class DateTimeJobParameterTest {
 
-    private DateTimeJobParameter jobParameter;
+    DateTimeJobParameter jobParameter;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         jobParameter = new DateTimeJobParameter();
     }
 

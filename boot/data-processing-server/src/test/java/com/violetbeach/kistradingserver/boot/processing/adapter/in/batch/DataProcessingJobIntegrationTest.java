@@ -21,7 +21,7 @@ class DataProcessingJobIntegrationTest extends BaseBatchIntegrationTest {
     void JobExecution_STATUS_COMPLETE_확인() throws Exception {
         // given
         JobParameters jobParameters = new JobParametersBuilder()
-                .addString("requestDateTime", LocalDateTime.now().toString())
+                .addString("baseDateTime", LocalDateTime.now().toString())
                 .toJobParameters();
 
         // when

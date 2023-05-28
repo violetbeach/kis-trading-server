@@ -3,20 +3,7 @@ spring:
     include:
       - test
       - auth
-
-  datasource:
-    url: jdbc:h2:mem:trading;MODE=MYSQL;
-
-    jpa:
-      properties:
-        hibernate:
-          show_sql: true
-          format_sql: true
-
-  sql:
-    init:
-      schema-locations: classpath:sql/ddl/*
-      mode: always
+      - chart
 
   batch:
     job:
