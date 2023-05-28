@@ -13,4 +13,8 @@ public class TokenContextHolder {
         TokenContextHolder.token = token;
     }
 
+    public static void clear() {
+        token = null;
+    }
+
 }
