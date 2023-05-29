@@ -1,4 +1,11 @@
 rootProject.name = 'kis-trading-server'
-include 'boot:data-processing-server'
-include 'domain:auth'
-include 'domain:chart'
+
+file('boot').eachDir { dir ->
+    include dir.name
+    project(":${dir.name}").projectDir = dir
+}
+
+file('domain').eachDir { dir ->
+    include dir.name
+    project(":${dir.name}").projectDir = dir
+}
