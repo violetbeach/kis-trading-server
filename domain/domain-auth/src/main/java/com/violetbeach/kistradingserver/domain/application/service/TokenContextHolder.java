@@ -1,7 +1,9 @@
 package com.violetbeach.kistradingserver.domain.application.service;
 
 import com.violetbeach.kistradingserver.domain.domain.Token;
+import lombok.experimental.UtilityClass;
 
+@UtilityClass
 public class TokenContextHolder {
     private static Token token;
 
