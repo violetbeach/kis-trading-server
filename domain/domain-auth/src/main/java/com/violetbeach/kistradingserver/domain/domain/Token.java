@@ -19,7 +19,7 @@ public record Token (
     }
 
     private void validTokenNotEmpty(String token) {
-        if (token.length() <= 0) {
+        if (token.isEmpty()) {
             throw new IllegalArgumentException("토큰은 비어있을 수 없습니다.");
         }
     }
