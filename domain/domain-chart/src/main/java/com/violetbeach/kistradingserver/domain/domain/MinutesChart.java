@@ -12,6 +12,9 @@ public class MinutesChart {
     private final StockCode stockCode;
     private final List<Candle> candles;
 
+    public String getStockCode() {
+        return stockCode.getCode();
+    }
     public int getCandlesSize() {
         return candles.size();
     }
