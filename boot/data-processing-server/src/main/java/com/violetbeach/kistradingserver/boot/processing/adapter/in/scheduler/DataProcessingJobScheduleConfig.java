@@ -12,7 +12,7 @@ import static org.quartz.JobBuilder.newJob;
 @Configuration
 class DataProcessingJobScheduleConfig {
 
-    private static final String cronExp = "0 32/30 9-17 ? * MON-FRI";
+    private static final String cronExp = "0 5/30 * * * ?";
 
     @Bean
     public JobDetail dataProcessingJobDetail() {
