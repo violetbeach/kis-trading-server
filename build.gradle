@@ -65,7 +65,10 @@ subprojects {
         afterEvaluate {
             classDirectories.setFrom(files(classDirectories.files.collect {
                 fileTree(dir: it,
-                        exclude: ["com/violetbeach/kistradingserver/**/*Request.class"])
+                        exclude: [
+                                "com/violetbeach/kistradingserver/**/*Request.class",
+                                "com/violetbeach/kistradingserver/**/*Response.class"
+                        ])
             }))
         }
 
@@ -77,7 +80,10 @@ subprojects {
         afterEvaluate {
             classDirectories.setFrom(files(classDirectories.files.collect {
                 fileTree(dir: it,
-                        exclude: ["com/violetbeach/kistradingserver/**/*Request.class"])
+                        exclude: [
+                                "com/violetbeach/kistradingserver/**/*Request.class",
+                                "com/violetbeach/kistradingserver/**/*Response.class"
+                        ])
             }))
         }
 
