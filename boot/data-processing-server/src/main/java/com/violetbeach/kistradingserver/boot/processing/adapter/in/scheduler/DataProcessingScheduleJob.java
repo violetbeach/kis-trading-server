@@ -22,8 +22,9 @@ class DataProcessingScheduleJob extends QuartzJobBean {
 
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-        JobParameters jobParameters = new JobParametersBuilder()
-                .addString("baseDateTime", LocalDateTime.now().toString())
+		LocalDateTime baseDateTime = initBaseDateTime();
+		JobParameters jobParameters = new JobParametersBuilder()
+                .addString("baseDateTime", baseDateTime.toString())
                 .toJobParameters();
         try {
             jobLauncher.run(dataProcessingJob, jobParameters);
@@ -31,4 +32,14 @@ class DataProcessingScheduleJob extends QuartzJobBean {
             throw new JobExecutionException(e);
         }
     }
+
+	private LocalDateTime initBaseDateTime() {
+		LocalDateTime currentTime = LocalDateTime.now();
+		int minute = currentTime.getMinute();
+
+		if(minute > 30) {
+			return currentTime.withMinute(30).withSecond(0);
+		}
+		return currentTime.withMinute(0).withSecond(0);
+	}
 }
