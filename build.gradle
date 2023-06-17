@@ -58,7 +58,7 @@ subprojects {
         dependsOn test
         reports {
             html.required = true
-            csv.required = false
+            csv.required = true
             xml.required = false
         }
 
