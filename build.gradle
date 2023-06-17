@@ -56,10 +56,11 @@ subprojects {
 
     jacocoTestReport {
         dependsOn test
+
         reports {
             html.required = true
             csv.required = true
-            xml.required = false
+            xml.required = true
         }
 
         afterEvaluate {
