@@ -2,8 +2,8 @@ feign:
   client:
     config:
       default:
-        connectTimeout: 500
-        readTimeout: 500
+        connectTimeout: 2000
+        readTimeout: 10000
         loggerLevel: full
         default-request-headers:
           appkey: ${KIS_APP_KEY}
