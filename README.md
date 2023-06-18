@@ -1,4 +1,4 @@
-## KIS Trading Server
+# KIS Trading Server
 
 [![GitHub release](https://img.shields.io/github/v/release/violetbeach/kis-trading-server?include_prereleases)](https://github.com/violetbeach/kis-trading-server/releases/latest)
 [![build](https://github.com/violetbeach/kis-trading-server/actions/workflows/gradle.yml/badge.svg)](https://github.com/violetbeach/kis-trading-server/actions/workflows/gradle.yml) 
