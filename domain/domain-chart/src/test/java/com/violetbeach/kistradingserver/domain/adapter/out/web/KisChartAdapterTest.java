@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -57,7 +58,7 @@ class KisChartAdapterTest {
 
                     assertAll(
                             () -> assertThat(actualCandle.getPrice()).isEqualTo(expectCandle.price()),
-                            () -> assertThat(actualCandle.getBaseTime()).isEqualTo(expectCandle.baseTime()),
+                            () -> assertThat(actualCandle.getBaseDateTime()).isEqualTo(LocalDateTime.of(expectCandle.baseDate(), expectCandle.baseTime())),
                             () -> assertThat(actualCandle.getHighPrice()).isEqualTo(expectCandle.highPrice()),
                             () -> assertThat(actualCandle.getLowPrice()).isEqualTo(expectCandle.lowPrice()),
                             () -> assertThat(actualCandle.getVolume()).isEqualTo(expectCandle.volume())

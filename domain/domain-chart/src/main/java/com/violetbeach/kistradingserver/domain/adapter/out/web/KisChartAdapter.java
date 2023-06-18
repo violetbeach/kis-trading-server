@@ -6,6 +6,7 @@ import com.violetbeach.kistradingserver.domain.domain.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
@@ -30,7 +31,10 @@ class KisChartAdapter implements LoadMinutesChartPort {
                 .stream()
                 .map(candleResponse -> new Candle(
                         new Money(candleResponse.price()),
-                        candleResponse.baseTime(),
+						LocalDateTime.of(
+								candleResponse.baseDate(),
+								candleResponse.baseTime()
+						),
                         new Money(candleResponse.highPrice()),
                         new Money(candleResponse.lowPrice()),
                         new Volume(candleResponse.volume())

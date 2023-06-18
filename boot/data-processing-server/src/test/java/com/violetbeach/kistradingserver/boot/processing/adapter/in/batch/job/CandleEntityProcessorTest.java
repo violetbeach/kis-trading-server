@@ -27,7 +27,7 @@ class CandleEntityProcessorTest {
                 () -> assertThat(candleVO.highPrice()).isEqualTo(expected.getHighPrice()),
                 () -> assertThat(candleVO.lowPrice()).isEqualTo(expected.getLowPrice()),
                 () -> assertThat(candleVO.volume()).isEqualTo(expected.getVolume()),
-                () -> assertThat(candleVO.baseTime()).isEqualTo(expected.getBaseTime())
+                () -> assertThat(candleVO.baseDateTime()).isEqualTo(expected.getBaseDateTime())
         );
 
 

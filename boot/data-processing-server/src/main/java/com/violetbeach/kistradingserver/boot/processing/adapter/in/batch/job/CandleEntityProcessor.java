@@ -19,7 +19,7 @@ class CandleEntityProcessor implements ItemProcessor<Candle, CandleVO> {
         CandleVO entity = new CandleVO(
                 stockCode,
                 candle.getPrice(),
-                candle.getBaseTime(),
+                candle.getBaseDateTime(),
                 candle.getHighPrice(),
                 candle.getLowPrice(),
                 candle.getVolume()

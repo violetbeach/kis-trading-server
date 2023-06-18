@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +53,7 @@ class CandleBatchItemWriterTest {
         return jdbcTemplate.query("SELECT * FROM candle", (rs, rowNum) -> new CandleVO(
                 rs.getString("stock_code"),
                 rs.getLong("price"),
-                rs.getTime("base_time").toLocalTime(),
+                rs.getTimestamp("base_date_time").toLocalDateTime(),
                 rs.getLong("high_price"),
                 rs.getLong("low_price"),
                 rs.getLong("volume")
@@ -65,7 +66,7 @@ class CandleBatchItemWriterTest {
             CandleVO candle = new CandleVO(
                     "000001",
                     50000L,
-                    LocalTime.of(12, 30, i),
+                    LocalDateTime.of(2022, 11, 1, 12, 30, i),
                     31000L,
                     29000L,
                     i * 10000L
