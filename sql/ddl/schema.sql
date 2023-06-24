@@ -10,6 +10,6 @@ CREATE TABLE IF NOT EXISTS `candle`
     high_price bigint,
     low_price  bigint,
     volume     bigint,
-    base_time  DateTime,
-    CONSTRAINT uc_stockCode_baseTime UNIQUE (stock_code, base_time)
+    base_date_time  DateTime,
+    CONSTRAINT uc_stockCode_baseTime UNIQUE (stock_code, base_date_time)
 );
