@@ -2,6 +2,7 @@ package com.violetbeach.kistradingserver.boot.processing.adapter.in.batch;
 
 import com.violetbeach.kistradingserver.boot.support.batch.BaseBatchIntegrationTest;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.batch.core.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,8 @@ class DataProcessingJobIntegrationTest extends BaseBatchIntegrationTest {
     }
 
     @Test
-    void JobExecution_STATUS_COMPLETE_확인() throws Exception {
+	@DisplayName("dataProcessingJob 실행이 완료되면 JobExecution이 COMPLETED로 처리된다.")
+    void ItJobExecutionIsCompleted() throws Exception {
         // given
         JobParameters jobParameters = new JobParametersBuilder()
                 .addString("baseDateTime", LocalDateTime.now().toString())

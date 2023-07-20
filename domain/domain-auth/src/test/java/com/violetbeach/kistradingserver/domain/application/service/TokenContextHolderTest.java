@@ -25,7 +25,7 @@ class TokenContextHolderTest {
     }
 
     @Test
-    @DisplayName("TokenContextHolder의 Token을 반환한다.")
+    @DisplayName("TokenContextHolder의 Token을 null로 초기화한다.")
     void clear_ItSetTokenNull() {
         // given
         setAuthToken(mock(Token.class));

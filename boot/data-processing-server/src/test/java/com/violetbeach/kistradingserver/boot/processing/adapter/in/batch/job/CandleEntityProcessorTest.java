@@ -14,7 +14,7 @@ class CandleEntityProcessorTest {
 
     @Test
     @DisplayName("Candle과 StockCode를 조합하여 CandleVO를 반환한다.")
-    void process() {
+    void ItReturnCandleVO() {
         // given
         Candle expected = 삼성전자_분봉.getCandle();
 

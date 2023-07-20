@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -17,14 +18,10 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 @DisplayName("IssueTokenService의")
 class IssueTokenServiceTest {
+	@InjectMocks
     IssueTokenService service;
     @Mock
     IssueTokenPort issueTokenPort;
-
-    @BeforeEach
-    void setup() {
-        service = new IssueTokenService(issueTokenPort);
-    }
 
     @Nested
     @DisplayName("issueToken 메서드는")

@@ -7,6 +7,7 @@ import com.violetbeach.kistradingserver.domain.domain.MinutesChart;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -18,14 +19,10 @@ import static org.mockito.BDDMockito.given;
 @ExtendWith(MockitoExtension.class)
 class MinutesChartServiceTest {
 
+	@InjectMocks
     MinutesChartService service;
     @Mock
     LoadMinutesChartPort loadMinutesChartPort;
-
-    @BeforeEach
-    void setup() {
-        service = new MinutesChartService(loadMinutesChartPort);
-    }
 
     @Test
     void getMinutesChart() {

@@ -3,9 +3,10 @@ package com.violetbeach.kistradingserver.domain.adapter.out.web;
 import com.violetbeach.kistradingserver.domain.application.port.out.LoadMinutesChartRequest;
 import com.violetbeach.kistradingserver.domain.domain.Candle;
 import com.violetbeach.kistradingserver.domain.domain.MinutesChart;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -23,17 +24,14 @@ import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
 class KisChartAdapterTest {
+	@InjectMocks
     KisChartAdapter adapter;
     @Mock
     KISChartClient kisChartClient;
 
-    @BeforeEach
-    void setUp() {
-        adapter = new KisChartAdapter(kisChartClient);
-    }
-
     @Test
-    void loadMinutesChart() {
+	@DisplayName("KISChartClient.getMinutesChart()를 호출해서 MinutesChart를 조회한다.")
+    void ItLoadMinutesChart() {
         // given
         LoadMinutesChartRequest 분봉_조회_요청 = 삼성전자_분봉_조회_요청.getRequest();
         GetMinutesChartResponse response = mockResponse();
@@ -50,6 +48,7 @@ class KisChartAdapterTest {
                 () -> assertThat(actualChart.getCandles()).hasSameSizeAs(response.candleResponseList())
         );
 
+		// Same candles with candleResponses
         List<Candle> actualCandles = actualChart.getCandles();
         IntStream.range(0, actualCandles.size())
                 .forEach(i -> {

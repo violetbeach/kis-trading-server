@@ -19,10 +19,10 @@ class KisChartAdapter implements LoadMinutesChartPort {
         GetMinutesChartCommand command = initCommand(request);
         GetMinutesChartResponse response = kisChartClient.getMinutesChart(command);
 
-        return makeChart(request.stockCode(), response);
+        return toMinutesChart(request.stockCode(), response);
     }
 
-    private MinutesChart makeChart(String stockCode, GetMinutesChartResponse response) {
+    private MinutesChart toMinutesChart(String stockCode, GetMinutesChartResponse response) {
         return new MinutesChart(new StockCode(stockCode), getCandles(response));
     }
 

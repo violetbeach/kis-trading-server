@@ -31,7 +31,6 @@ class AuthInterceptorTest {
 
     @BeforeEach
     void setUp() {
-        authInterceptor = new AuthInterceptor(issueTokenUseCase);
         TokenContextHolder.clear();
     }
 

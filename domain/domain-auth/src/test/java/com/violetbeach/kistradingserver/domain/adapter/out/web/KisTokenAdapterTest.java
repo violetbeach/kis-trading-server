@@ -31,10 +31,10 @@ class KisTokenAdapterTest {
     }
 
     @Test
-    @DisplayName("KisTokenClient의 issueToken()을 호출한다.")
+    @DisplayName("KisTokenClient의 issueToken()을 호출하여 token을 조회한다.")
     void ItCallKisTokenClient() {
         // given
-        IssueTokenResponse response = 토큰_발급_응답();
+        IssueTokenResponse response = issueTokenResponse();
         given(kisTokenClient.issueToken(any(IssueTokenRequest.class)))
                 .willReturn(response);
 
@@ -52,7 +52,7 @@ class KisTokenAdapterTest {
         );
     }
 
-    private IssueTokenResponse 토큰_발급_응답() {
+    private IssueTokenResponse issueTokenResponse() {
         LocalDateTime current = LocalDateTime.now();
         return new IssueTokenResponse("token", current.plusDays(1), "Bearer");
     }

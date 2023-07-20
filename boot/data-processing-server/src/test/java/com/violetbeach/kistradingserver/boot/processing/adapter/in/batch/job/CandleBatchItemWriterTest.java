@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +32,7 @@ class CandleBatchItemWriterTest {
 
     @Test
     @DisplayName("Candle 리스트를 DB에 저장한다.")
-    void write() throws Exception {
+    void ItSaveCandles() throws Exception {
         // given
         List<CandleVO> candles = generateCandleVO(10);
 
