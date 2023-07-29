@@ -3,15 +3,12 @@ package com.violetbeach.kistradingserver.boot.processing.adapter.in.batch.job;
 import com.violetbeach.kistradingserver.boot.processing.application.service.TargetStocks;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.batch.item.ExecutionContext;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@ExtendWith(MockitoExtension.class)
 class StockPartitionerTest {
 
     StockPartitioner stockPartitioner;
