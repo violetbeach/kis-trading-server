@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 class KISClientDelayAspect {
-	private static final Long DELAY = 500L;
+    private static final Long DELAY = 500L;
 
-	@After("execution(* com.violetbeach.kistradingserver.domain.adapter.out.web.KisChartAdapter.loadMinutesChart(..))")
-	public void afterLoadMinutesChart() throws InterruptedException {
-		Thread.sleep(DELAY);
-	}
+    @After("execution(* com.violetbeach.kistradingserver.domain.adapter.out.web.KisChartAdapter.loadMinutesChart(..))")
+    public void afterLoadMinutesChart() throws InterruptedException {
+        Thread.sleep(DELAY);
+    }
 
 }

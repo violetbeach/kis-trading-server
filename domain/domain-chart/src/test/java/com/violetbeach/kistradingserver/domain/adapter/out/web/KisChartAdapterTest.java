@@ -24,13 +24,13 @@ import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
 class KisChartAdapterTest {
-	@InjectMocks
+    @InjectMocks
     KisChartAdapter adapter;
     @Mock
     KISChartClient kisChartClient;
 
     @Test
-	@DisplayName("KISChartClient.getMinutesChart()를 호출해서 MinutesChart를 조회한다.")
+    @DisplayName("KISChartClient.getMinutesChart()를 호출해서 MinutesChart를 조회한다.")
     void ItLoadMinutesChart() {
         // given
         LoadMinutesChartRequest 분봉_조회_요청 = 삼성전자_분봉_조회_요청.getRequest();
@@ -48,7 +48,7 @@ class KisChartAdapterTest {
                 () -> assertThat(actualChart.getCandles()).hasSameSizeAs(response.candleResponseList())
         );
 
-		// Same candles with candleResponses
+        // Same candles with candleResponses
         List<Candle> actualCandles = actualChart.getCandles();
         IntStream.range(0, actualCandles.size())
                 .forEach(i -> {

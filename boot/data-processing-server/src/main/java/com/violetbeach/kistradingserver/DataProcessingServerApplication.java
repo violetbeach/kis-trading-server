@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @NoArgsConstructor
 class DataProcessingServerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DataProcessingServerApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DataProcessingServerApplication.class, args);
+    }
 
 }

@@ -19,7 +19,7 @@ class DataProcessingJobIntegrationTest extends BaseBatchIntegrationTest {
     }
 
     @Test
-	@DisplayName("dataProcessingJob 실행이 완료되면 JobExecution이 COMPLETED로 처리된다.")
+    @DisplayName("dataProcessingJob 실행이 완료되면 JobExecution이 COMPLETED로 처리된다.")
     void ItJobExecutionIsCompleted() throws Exception {
         // given
         JobParameters jobParameters = new JobParametersBuilder()

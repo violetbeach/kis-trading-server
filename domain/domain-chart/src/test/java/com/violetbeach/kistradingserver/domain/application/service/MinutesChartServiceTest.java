@@ -19,7 +19,7 @@ import static org.mockito.BDDMockito.given;
 @ExtendWith(MockitoExtension.class)
 class MinutesChartServiceTest {
 
-	@InjectMocks
+    @InjectMocks
     MinutesChartService service;
     @Mock
     LoadMinutesChartPort loadMinutesChartPort;

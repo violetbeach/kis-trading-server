@@ -31,10 +31,10 @@ class KisChartAdapter implements LoadMinutesChartPort {
                 .stream()
                 .map(candleResponse -> new Candle(
                         new Money(candleResponse.price()),
-						LocalDateTime.of(
-								candleResponse.baseDate(),
-								candleResponse.baseTime()
-						),
+                        LocalDateTime.of(
+                                candleResponse.baseDate(),
+                                candleResponse.baseTime()
+                        ),
                         new Money(candleResponse.highPrice()),
                         new Money(candleResponse.lowPrice()),
                         new Volume(candleResponse.volume())

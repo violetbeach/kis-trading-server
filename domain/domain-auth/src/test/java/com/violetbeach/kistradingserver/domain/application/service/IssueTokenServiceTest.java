@@ -18,7 +18,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 @DisplayName("IssueTokenService의")
 class IssueTokenServiceTest {
-	@InjectMocks
+    @InjectMocks
     IssueTokenService service;
     @Mock
     IssueTokenPort issueTokenPort;
